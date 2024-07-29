@@ -16,6 +16,8 @@ class Product:
         cls.description = my_dict['description']
         cls.price = my_dict['price']
         cls.quantity = my_dict['quantity']
+        instance = cls(cls.name, cls.description, cls.price, cls.quantity)
+        return instance
 
     @property
     def price(self):
