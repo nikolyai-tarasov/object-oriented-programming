@@ -22,3 +22,7 @@ def test_category(category_phones):
     assert category_phones.name == "Смартфоны"
     assert category_phones.count_category == 1
     assert category_phones.count_product == 4
+
+
+
+

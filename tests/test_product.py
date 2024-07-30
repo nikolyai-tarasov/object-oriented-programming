@@ -15,9 +15,12 @@ def test_product(product_appal):
 
 
 def test_latest_add_prod():
-    Product.new_product({'name': 'appal',
-                         'description': 'fruit',
-                         'price': 150,
-                         'quantity': 124})
-    assert Product.name == 'appal'
-    assert Product.price == 150
+    x = {'name': 'appal',
+         'description': 'fruit',
+         'price': 150,
+         'quantity': 124}
+    prod_1 = Product.new_product(x)
+    assert prod_1.name == 'appal'
+    assert prod_1.price == 150
+    assert prod_1.quantity == 124
+    assert prod_1.description == 'fruit'

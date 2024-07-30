@@ -12,11 +12,11 @@ class Product:
 
     @classmethod
     def new_product(cls, my_dict):
-        cls.name = my_dict['name']
-        cls.description = my_dict['description']
-        cls.price = my_dict['price']
-        cls.quantity = my_dict['quantity']
-        instance = cls(cls.name, cls.description, cls.price, cls.quantity)
+        name = my_dict['name']
+        description = my_dict['description']
+        price = my_dict['price']
+        quantity = my_dict['quantity']
+        instance = cls(name, description, price, quantity)
         return instance
 
     @property
@@ -29,3 +29,11 @@ class Product:
             print("Цена не должна быть нулевая или отрицательная")
         else:
             self.__price = value
+
+
+x = {'name': 'appal',
+     'description': 'fruit',
+     'price': 150,
+     'quantity': 124}
+prod_1 = Product.new_product(x)
+print(prod_1.name)
