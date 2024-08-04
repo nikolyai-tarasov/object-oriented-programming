@@ -30,7 +30,7 @@ def test_category(category_phones):
 
 def test_str(category_phones):
     """Функция тестирования стокового значения класса"""
-    assert str(category_phones) == str(category_phones)
+    assert str(category_phones) == f"{category_phones.name}, количество продуктов: 34 шт."
 
 
 def test_add_product(category_phones):
