@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.mixin_log import MixinLog
+
+
+class Product(MixinLog, BaseProduct):
     """Класс 'Product' создает экземпляры продуктов"""
     name: str
     description: str
@@ -8,11 +12,9 @@ class Product:
 
     def __init__(self, name, description, price, quantity):
         """Конструктор класса"""
-        self.name = name
-        self.description = description
-        self.__price = price
-        self.quantity = quantity
+        super().__init__(name, description, price, quantity)
         Product.counter_of_all_products += quantity
+        super().__repr__()
 
     @classmethod
     def new_product(cls, my_dict):
@@ -48,3 +50,5 @@ class Product:
         raise TypeError("Можно складывать объекты только одного класса")
 
 
+product1 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 5)
+print(str(product1))
