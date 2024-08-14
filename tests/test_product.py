@@ -53,8 +53,6 @@ def test_add_product_exception():
         grass_sum = product1 + red_1
     except Exception as e:
         assert e
-
-
 def test_zero_product():
     with pytest.raises(ValueError):
         product_0 = Product("Samsung Galaxy S23 Ultra", "256GB, Серый цвет, 200MP камера", 180000.0, 0)

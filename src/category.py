@@ -17,7 +17,7 @@ class Category:
         self.__products = products
         Category.count_category += 1
         Category.count_product += len(products)
-        # Category.avg_price += Product.price
+
 
     def __str__(self):
         """Строковое значение класса для пользователя"""
@@ -47,6 +47,3 @@ class Category:
         except ZeroDivisionError:
             return 0
 
-
-category_empty = Category("Пустая категория", "Категория без продуктов", [])
-print(category_empty.middle_price())
