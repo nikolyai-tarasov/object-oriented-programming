@@ -44,6 +44,7 @@ def test_add_product(category_phones):
 
 def test_add_product_exception(category_phones):
     """Функция тестирования вызова исключения"""
+
     class RedFlag:
         def __init__(self, name):
             self.name = name
@@ -53,3 +54,14 @@ def test_add_product_exception(category_phones):
         category_phones.add_product(red_1)
     except Exception as e:
         assert e
+
+
+def test_middle_price_type_error():
+    category_empty = Category("Пустая категория", "Категория без продуктов", [])
+    with pytest.raises(TypeError):
+        print(category_empty.middle_price())
+
+
+def test_middle_price_zero_error():
+    category_empty = Category("Пустая категория", "Категория без продуктов", [])
+    assert category_empty.middle_price() == 0

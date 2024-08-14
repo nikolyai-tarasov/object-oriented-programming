@@ -8,6 +8,7 @@ class Category:
     products: list
     count_category = 0
     count_product = 0
+    avg_price = 0
 
     def __init__(self, name, description, products):
         """Конструктор класса"""
@@ -16,9 +17,10 @@ class Category:
         self.__products = products
         Category.count_category += 1
         Category.count_product += len(products)
+        # Category.avg_price += Product.price
 
     def __str__(self):
-        """Стоковое значение класса для пользователя"""
+        """Строковое значение класса для пользователя"""
         product = 0
         for i in self.__products:
             product += i.quantity
@@ -38,3 +40,13 @@ class Category:
         for i in self.__products:
             product += f"{str(i)}\n"
         return product
+
+    def middle_price(self):
+        try:
+            return round(Product.avg_price / Category.count_product, 1)
+        except ZeroDivisionError:
+            return 0
+
+
+category_empty = Category("Пустая категория", "Категория без продуктов", [])
+print(category_empty.middle_price())
